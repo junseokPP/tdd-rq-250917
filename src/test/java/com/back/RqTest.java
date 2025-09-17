@@ -106,4 +106,14 @@ public class RqTest {
         int actionName = rq.getParamAsInt("page",-1); // 삭제
         assertThat(actionName).isEqualTo(1);
     }
+
+    @Test
+    @DisplayName("입력값 : \"목록?page=2번\" : getParam(\"page\"): -1")
+    public void t11() {
+
+        Rq rq = new Rq("목록?page=2번");
+
+        int actionName = rq.getParamAsInt("page",-1); // 삭제
+        assertThat(actionName).isEqualTo(-1);
+    }
 }
