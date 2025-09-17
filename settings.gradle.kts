@@ -1,0 +1,1 @@
+rootProject.name = "tdd-rq-250917"
