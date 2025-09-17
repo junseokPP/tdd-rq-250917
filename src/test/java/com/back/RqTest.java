@@ -33,7 +33,7 @@ public class RqTest {
 
         Rq rq = new Rq("등록?이름=홍길동");
 
-        String actionName = rq.getParam("이름"); // 삭제
+        String actionName = rq.getParam("이름",""); // 삭제
         assertThat(actionName).isEqualTo("홍길동");
     }
 
@@ -43,7 +43,7 @@ public class RqTest {
 
         Rq rq = new Rq("등록?고향=서울");
 
-        String actionName = rq.getParam("고향"); // 삭제
+        String actionName = rq.getParam("고향",""); // 삭제
         assertThat(actionName).isEqualTo("서울");
     }
 
