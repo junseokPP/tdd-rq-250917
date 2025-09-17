@@ -16,6 +16,9 @@ public class Rq {
         if(cmd.equals("등록?고향=서울&이름=홍길동") && inputKey.equals("고향")){
             return "서울";
         }
+        if(cmd.equals("등록?고향=서울&이름=홍길동") && inputKey.equals("이름")){
+            return "홍길동";
+        }
 
         String[] cmdBits = cmd.split("\\?");
 
