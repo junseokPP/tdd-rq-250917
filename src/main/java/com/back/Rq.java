@@ -1,5 +1,10 @@
 package com.back;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 public class Rq {
 
     private String cmd;
@@ -16,20 +21,21 @@ public class Rq {
 
     public String getParam(String inputKey, String defaultValue) {
 
+        Map<String, String> paramMap = new HashMap<>();
+
         String[] cmdBits = cmd.split("\\?");
         String queryString = cmdBits[1];
         String[] queryBits = queryString.split("&");
 
-        for(String param : queryBits) {
-            String[] paramBits = param.split("=");
-            String key = paramBits[0];
-            String value = paramBits[1];
+        paramMap = Arrays.stream(queryBits)
+                .map(param -> param.split("="))
+                .collect(
+                        Collectors.toMap(
+                                bits -> bits[0],
+                                bits -> bits[1]
+                        )
+                );
 
-            if(inputKey.equals(key)) {
-                return value;
-            }
-        }
-
-        return defaultValue;
+        return paramMap.getOrDefault(inputKey, defaultValue);
     }
 }
