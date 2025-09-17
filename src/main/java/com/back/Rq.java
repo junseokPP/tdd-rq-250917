@@ -38,4 +38,9 @@ public class Rq {
 
         return paramMap.getOrDefault(inputKey, defaultValue);
     }
+
+    public int getParamAsInt(String page, int i) {
+
+
+    }
 }

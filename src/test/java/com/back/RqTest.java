@@ -96,4 +96,14 @@ public class RqTest {
         String actionName = rq.getParam("성별",""); // 삭제
         assertThat(actionName).isEqualTo("남자");
     }
+
+    @Test
+    @DisplayName("입력값 : \"목록?page=1\" : getParam(\"page\"): 1")
+    public void t10() {
+
+        Rq rq = new Rq("목록?page=1");
+
+        int actionName = rq.getParamAsInt("page",-1); // 삭제
+        assertThat(actionName).isEqualTo(1);
+    }
 }
