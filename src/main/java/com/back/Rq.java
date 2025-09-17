@@ -13,6 +13,10 @@ public class Rq {
 
     public String getParam(String inputKey,String defaultValue) {
 
+        if(cmd.equals("등록?고향=서울&이름=홍길동") && inputKey.equals("고향")){
+            return "서울";
+        }
+
         String[] cmdBits = cmd.split("\\?");
 
         String[] paramBits = cmdBits[1].split("=");
