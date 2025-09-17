@@ -8,12 +8,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class RqTest {
 
     @Test
-    @DisplayName("getActionName()")
+    @DisplayName("getActionName(\"삭제?id=1\") : 삭제")
     public void t1() {
 
         Rq rq = new Rq("삭제?id=1");
 
         String actionName = rq.getActionName(); // 삭제
-        assertThat(actionName)
+        assertThat(actionName).isEqualTo("삭제");
     }
 }
