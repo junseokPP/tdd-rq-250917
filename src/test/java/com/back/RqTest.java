@@ -76,4 +76,24 @@ public class RqTest {
         String actionName = rq.getParam("이름",""); // 삭제
         assertThat(actionName).isEqualTo("홍길동");
     }
+
+    @Test
+    @DisplayName("입력값 : \"등록?고향=서울&이름=홍길동&성별=남자\" : getParam(\"이름\"): 홍길동")
+    public void t8() {
+
+        Rq rq = new Rq("등록?고향=서울&이름=홍길동&성별=남자");
+
+        String actionName = rq.getParam("이름",""); // 삭제
+        assertThat(actionName).isEqualTo("홍길동");
+    }
+
+    @Test
+    @DisplayName("입력값 : \"등록?고향=서울&이름=홍길동&성별=남자\" : getParam(\"성별\"): 남자")
+    public void t9() {
+
+        Rq rq = new Rq("등록?고향=서울&이름=홍길동&성별=남자");
+
+        String actionName = rq.getParam("성별",""); // 삭제
+        assertThat(actionName).isEqualTo("남자");
+    }
 }
