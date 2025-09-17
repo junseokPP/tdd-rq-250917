@@ -46,4 +46,14 @@ public class RqTest {
         String actionName = rq.getParam("고향"); // 삭제
         assertThat(actionName).isEqualTo("서울");
     }
+
+    @Test
+    @DisplayName("입력값 : \"등록?고향=서울\" : getParam(\"고향\"): 서울")
+    public void t5() {
+
+        Rq rq = new Rq("등록?고향=서울");
+
+        String actionName = rq.getParam("이름",""); // 삭제
+        assertThat(actionName).isEqualTo("");
+    }
 }
